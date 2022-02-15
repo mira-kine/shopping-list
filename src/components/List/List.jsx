@@ -11,7 +11,6 @@ export default function List({ items, handleUpdate, handleDone, handleDelete }) 
           if (edit === true) {
             return (
               <li key={item.id} className="list-item">
-                <input type="checkbox" />
                 <input
                   value={item.text}
                   onChange={(e) => {
@@ -24,7 +23,7 @@ export default function List({ items, handleUpdate, handleDone, handleDelete }) 
           } else {
             return (
               <li key={item.id} className="list-item">
-                <input type="checkbox" />
+                <input type="checkbox" onChange={() => handleDone(item.id)} />
                 <p>{item.text}</p>
                 <button onClick={() => setEdit(true)}>Edit</button>
                 <button onClick={() => handleDelete(item.id)}>delete</button>

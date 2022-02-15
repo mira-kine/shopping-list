@@ -31,9 +31,7 @@ function itemsReducer(items, action) {
       return items.map((item) => (item.id === action.select.id ? action.select : item));
     }
     case 'done': {
-      return items.map((item) =>
-        item.id === action.select.id ? { ...item, done: !item.done } : item
-      );
+      return items.map((item) => (item.id === action.id ? { ...item, done: !item.done } : item));
     }
     case 'deleted': {
       // only return the ones that don't match the payload id
@@ -65,16 +63,17 @@ export default function ShopList() {
   const handleDone = (selectId) => {
     dispatch({
       type: 'done',
-      selectId,
+      id: selectId,
     });
   };
 
   const handleDelete = (selectId) => {
     dispatch({
       type: 'deleted',
-      selectId,
+      id: selectId,
     });
   };
+
   return (
     <div>
       <List
