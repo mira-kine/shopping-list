@@ -4,7 +4,6 @@ import './List.css';
 
 export default function List({ items, handleUpdate }) {
   const [edit, setEdit] = useState(false);
-  console.log('edit', edit);
   return (
     <div>
       <ul className="list-container">

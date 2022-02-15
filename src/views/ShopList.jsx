@@ -33,9 +33,6 @@ function itemsReducer(items, action) {
         return action.toGet;
       });
     }
-    case 'deleted': {
-      return items.find((item) => item.id === action.id);
-    }
     default: {
       throw Error(`Unkown action: ${action.type}`);
     }
@@ -43,7 +40,7 @@ function itemsReducer(items, action) {
 }
 export default function ShopList() {
   const [items, dispatch] = useReducer(itemsReducer, initialItems);
-
+  console.log('items', items);
   const handleAdd = (text) => {
     dispatch({
       type: 'added',
@@ -56,13 +53,6 @@ export default function ShopList() {
     dispatch({
       type: 'edited',
       toGet,
-    });
-  };
-
-  const handleDelete = (toGetId) => {
-    dispatch({
-      type: 'deleted',
-      toGetId,
     });
   };
 
