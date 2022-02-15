@@ -59,6 +59,13 @@ export default function ShopList() {
     });
   };
 
+  const handleDelete = (toGetId) => {
+    dispatch({
+      type: 'deleted',
+      toGetId,
+    });
+  };
+
   return (
     <div>
       <List items={items} handleUpdate={handleUpdate} />
