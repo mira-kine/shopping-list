@@ -25,13 +25,19 @@ function itemsReducer(items, action) {
       ];
     }
     case 'edited': {
-      // return array of items if match id
-      return items.map((item) => {
-        if (item.id !== action.toGet.id) {
-          return item;
-        }
-        return action.toGet;
-      });
+      // return array of items if match id of user action select
+      // payload has its own id
+      // payload is whatever user is sending in - defining it in the reducer function
+      return items.map((item) => (item.id === action.select.id ? action.select : item));
+    }
+    case 'done': {
+      return items.map((item) =>
+        item.id === action.select.id ? { ...item, done: !item.done } : item
+      );
+    }
+    case 'deleted': {
+      // only return the ones that don't match the payload id
+      return items.filter((item) => item.id !== action.id);
     }
     default: {
       throw Error(`Unkown action: ${action.type}`);
@@ -49,16 +55,34 @@ export default function ShopList() {
     });
   };
 
-  const handleUpdate = (toGet) => {
+  const handleUpdate = (select) => {
     dispatch({
       type: 'edited',
-      toGet,
+      select,
     });
   };
 
+  const handleDone = (selectId) => {
+    dispatch({
+      type: 'done',
+      selectId,
+    });
+  };
+
+  const handleDelete = (selectId) => {
+    dispatch({
+      type: 'deleted',
+      selectId,
+    });
+  };
   return (
     <div>
-      <List items={items} handleUpdate={handleUpdate} />
+      <List
+        items={items}
+        handleUpdate={handleUpdate}
+        handleDone={handleDone}
+        handleDelete={handleDelete}
+      />
       <AddItem handleAdd={handleAdd} />
     </div>
   );

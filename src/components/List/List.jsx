@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import './List.css';
 
-export default function List({ items, handleUpdate }) {
+export default function List({ items, handleUpdate, handleDone, handleDelete }) {
   const [edit, setEdit] = useState(false);
   return (
     <div>
@@ -27,6 +27,7 @@ export default function List({ items, handleUpdate }) {
                 <input type="checkbox" />
                 <p>{item.text}</p>
                 <button onClick={() => setEdit(true)}>Edit</button>
+                <button onClick={() => handleDelete(item.id)}>delete</button>
               </li>
             );
           }
