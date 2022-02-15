@@ -27,10 +27,10 @@ function itemsReducer(items, action) {
     case 'edited': {
       // return array of items if match id
       return items.map((item) => {
-        if (item.id !== action.payload.id) {
+        if (item.id !== action.toGet.id) {
           return item;
         }
-        return action.payload;
+        return action.toGet;
       });
     }
     case 'deleted': {
@@ -52,9 +52,16 @@ export default function ShopList() {
     });
   };
 
+  const handleUpdate = (toGet) => {
+    dispatch({
+      type: 'edited',
+      toGet,
+    });
+  };
+
   return (
     <div>
-      <List items={items} />
+      <List items={items} handleUpdate={handleUpdate} />
       <AddItem handleAdd={handleAdd} />
     </div>
   );
