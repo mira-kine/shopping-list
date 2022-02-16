@@ -1,5 +1,11 @@
 import React from 'react';
+import { useShop } from '../../context/ShopProvider';
 
 export default function Header() {
-  return <div>Header</div>;
+  const { items } = useShop();
+  return (
+    <div className="header-container">
+      <p>Number of Items: {items.length}</p>
+    </div>
+  );
 }
