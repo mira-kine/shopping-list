@@ -1,9 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
+import { useShop } from '../../context/ShopProvider';
 import './List.css';
 
-export default function List({ items, handleUpdate, handleDone, handleDelete }) {
+export default function List() {
   const [edit, setEdit] = useState(false);
+  const { items, handleUpdate, handleDone, handleDelete } = useShop();
   return (
     <div className="list-container">
       <ul className="list">

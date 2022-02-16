@@ -1,9 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import './AddItem.css';
+import { useShop } from '../../context/ShopProvider';
 
-export default function AddItem({ handleAdd }) {
+export default function AddItem() {
   const [newItem, setNewItem] = useState('');
+  const { handleAdd } = useShop();
 
   const handleSubmit = (e) => {
     e.preventDefault();
