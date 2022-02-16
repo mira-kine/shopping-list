@@ -2,6 +2,7 @@ import React from 'react';
 import { useReducer } from 'react';
 import AddItem from '../components/AddItem/AddItem';
 import List from '../components/List/List';
+import Header from '../components/Header/Header';
 //making katsu
 
 const initialItems = [
@@ -74,14 +75,17 @@ export default function ShopList() {
   };
 
   return (
-    <div>
-      <List
-        items={items}
-        handleUpdate={handleUpdate}
-        handleDone={handleDone}
-        handleDelete={handleDelete}
-      />
-      <AddItem handleAdd={handleAdd} />
-    </div>
+    <>
+      <Header />
+      <div className="container">
+        <List
+          items={items}
+          handleUpdate={handleUpdate}
+          handleDone={handleDone}
+          handleDelete={handleDelete}
+        />
+        <AddItem handleAdd={handleAdd} />
+      </div>
+    </>
   );
 }

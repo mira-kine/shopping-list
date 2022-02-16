@@ -5,8 +5,8 @@ import './List.css';
 export default function List({ items, handleUpdate, handleDone, handleDelete }) {
   const [edit, setEdit] = useState(false);
   return (
-    <div>
-      <ul className="list-container">
+    <div className="list-container">
+      <ul className="list">
         {items.map((item) => {
           if (edit === true) {
             return (
@@ -16,8 +16,11 @@ export default function List({ items, handleUpdate, handleDone, handleDelete }) 
                   onChange={(e) => {
                     handleUpdate({ ...item, text: e.target.value });
                   }}
+                  aria-label="Edit ${item.text}"
                 />
-                <button onClick={() => setEdit(false)}>Save</button>
+                <button className="button" onClick={() => setEdit(false)}>
+                  Save
+                </button>
               </li>
             );
           } else {
@@ -25,8 +28,12 @@ export default function List({ items, handleUpdate, handleDone, handleDelete }) 
               <li key={item.id} className="list-item">
                 <input type="checkbox" onChange={() => handleDone(item.id)} />
                 <p>{item.text}</p>
-                <button onClick={() => setEdit(true)}>Edit</button>
-                <button onClick={() => handleDelete(item.id)}>delete</button>
+                <button className="button" onClick={() => setEdit(true)}>
+                  Edit
+                </button>
+                <button className="button" onClick={() => handleDelete(item.id)}>
+                  Delete
+                </button>
               </li>
             );
           }

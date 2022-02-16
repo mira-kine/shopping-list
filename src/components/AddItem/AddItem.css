@@ -1,0 +1,14 @@
+.add-form {
+  display: flex;
+  font-family: monospace;
+  font-size: 1.3rem;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 400px;
+}
+
+.add-form input {
+  height: 30px;
+  width: 200px;
+}
