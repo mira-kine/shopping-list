@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
-
-test('renders learn react link', () => {
+// add, delete, edit, and item list displays
+test('adds item to list', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  // initial items rendering
+  // type into add Item input textbox
+  // submit form to render input with text content, checkbox, edit button, delete button
 });
