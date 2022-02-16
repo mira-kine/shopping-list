@@ -44,7 +44,6 @@ function itemsReducer(items, action) {
 }
 export default function ShopList() {
   const [items, dispatch] = useReducer(itemsReducer, initialItems);
-  console.log('items', items);
   const handleAdd = (text) => {
     dispatch({
       type: 'added',
