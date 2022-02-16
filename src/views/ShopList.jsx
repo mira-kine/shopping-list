@@ -25,16 +25,17 @@ function itemsReducer(items, action) {
       ];
     }
     case 'edited': {
-      // return array of items if match id
-      return items.map((item) => {
-        if (item.id !== action.payload.id) {
-          return item;
-        }
-        return action.payload;
-      });
+      // return array of items if match id of user action select
+      // payload has its own id
+      // payload is whatever user is sending in - defining it in the reducer function
+      return items.map((item) => (item.id === action.select.id ? action.select : item));
+    }
+    case 'done': {
+      return items.map((item) => (item.id === action.id ? { ...item, done: !item.done } : item));
     }
     case 'deleted': {
-      return items.find((item) => item.id === action.id);
+      // only return the ones that don't match the payload id
+      return items.filter((item) => item.id !== action.id);
     }
     default: {
       throw Error(`Unkown action: ${action.type}`);
@@ -43,7 +44,7 @@ function itemsReducer(items, action) {
 }
 export default function ShopList() {
   const [items, dispatch] = useReducer(itemsReducer, initialItems);
-
+  console.log('items', items);
   const handleAdd = (text) => {
     dispatch({
       type: 'added',
@@ -52,9 +53,35 @@ export default function ShopList() {
     });
   };
 
+  const handleUpdate = (select) => {
+    dispatch({
+      type: 'edited',
+      select,
+    });
+  };
+
+  const handleDone = (selectId) => {
+    dispatch({
+      type: 'done',
+      id: selectId,
+    });
+  };
+
+  const handleDelete = (selectId) => {
+    dispatch({
+      type: 'deleted',
+      id: selectId,
+    });
+  };
+
   return (
     <div>
-      <List items={items} />
+      <List
+        items={items}
+        handleUpdate={handleUpdate}
+        handleDone={handleDone}
+        handleDelete={handleDelete}
+      />
       <AddItem handleAdd={handleAdd} />
     </div>
   );
