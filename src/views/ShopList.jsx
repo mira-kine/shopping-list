@@ -11,15 +11,15 @@ const initialItems = [
 
 // reducer function takes state and action
 // state = items
-function itemsReducer(items, action) {
-  switch (action.type) {
+function itemsReducer(items, { type, select, text, id }) {
+  switch (type) {
     case 'added': {
       // return new array with prev state + new object
       return [
         ...items,
         {
           id: items.length + 1,
-          text: action.text,
+          text: text,
           done: false,
         },
       ];
@@ -28,17 +28,17 @@ function itemsReducer(items, action) {
       // return array of items if match id of user action select
       // payload has its own id
       // payload is whatever user is sending in - defining it in the reducer function
-      return items.map((item) => (item.id === action.select.id ? action.select : item));
+      return items.map((item) => (item.id === select.id ? select : item));
     }
     case 'done': {
-      return items.map((item) => (item.id === action.id ? { ...item, done: !item.done } : item));
+      return items.map((item) => (item.id === id ? { ...item, done: !item.done } : item));
     }
     case 'deleted': {
       // only return the ones that don't match the payload id
-      return items.filter((item) => item.id !== action.id);
+      return items.filter((item) => item.id !== id);
     }
     default: {
-      throw Error(`Unkown action: ${action.type}`);
+      throw Error(`Unkown action: ${type}`);
     }
   }
 }
