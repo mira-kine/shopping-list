@@ -10,12 +10,12 @@ export default function Item({ item, handleUpdate, handleDelete, handleDone }) {
       <>
         <input
           value={item.text}
+          aria-label="Edit field"
           onChange={(e) => {
             handleUpdate({ ...item, text: e.target.value });
           }}
-          aria-label="Edit ${item.text}"
         />
-        <button className="button" onClick={() => setEdit(false)}>
+        <button className="button" aria-label="Save button" onClick={() => setEdit(false)}>
           Save
         </button>
       </>
@@ -24,7 +24,7 @@ export default function Item({ item, handleUpdate, handleDelete, handleDone }) {
     itemStatus = (
       <>
         <p>{item.text}</p>
-        <button className="button" onClick={() => setEdit(true)}>
+        <button className="button" aria-label={`Edit ${item.text}`} onClick={() => setEdit(true)}>
           Edit
         </button>
       </>
@@ -34,7 +34,11 @@ export default function Item({ item, handleUpdate, handleDelete, handleDone }) {
     <div>
       <input type="checkbox" onChange={() => handleDone(item.id)} />
       {itemStatus}
-      <button className="button" onClick={() => handleDelete(item.id)}>
+      <button
+        className="button"
+        aria-label={`Delete ${item.text}`}
+        onClick={() => handleDelete(item.id)}
+      >
         Delete
       </button>
     </div>
