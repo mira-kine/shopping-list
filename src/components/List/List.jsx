@@ -8,6 +8,7 @@ export default function List() {
 
   return (
     <div className="list-container">
+      <h2 className="list-title">Shopping List</h2>
       <ul className="list">
         {items.map((item) => (
           <li key={item.id} className="list-item">

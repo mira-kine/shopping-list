@@ -25,7 +25,7 @@ test('adds item to list, able to edit', () => {
   const editInput = screen.getByLabelText('Edit field');
   userEvent.type(editInput, '{selectall}{del}Bread');
   const saveButton = screen.getByRole('button', {
-    name: /save/i,
+    name: 'Save Bread',
   });
   userEvent.click(saveButton);
 
@@ -33,15 +33,10 @@ test('adds item to list, able to edit', () => {
   screen.getByText(/bread/i);
   expect(screen.queryByText('egg')).not.toBeInTheDocument();
   expect(editInput).not.toBeInTheDocument();
-  expect(
-    screen.queryByText('button', {
-      name: /save/i,
-    })
-  ).not.toBeInTheDocument();
+  expect(screen.queryByText('Save Bread')).not.toBeInTheDocument();
 
   // Delete
   const deleteButton = screen.getByLabelText(/delete bread/i);
   userEvent.click(deleteButton);
   expect(screen.queryByText(/bread/i)).toBeNull();
-  // submit form to render input with text content, checkbox, edit button, delete button
 });

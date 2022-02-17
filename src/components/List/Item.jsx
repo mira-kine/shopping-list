@@ -23,7 +23,7 @@ export default function Item({ item, handleUpdate, handleDelete, handleDone }) {
   } else {
     itemStatus = (
       <>
-        <p>{item.text}</p>
+        <label className="item-label">{item.text}</label>
         <button className="button" aria-label={`Edit ${item.text}`} onClick={() => setEdit(true)}>
           Edit
         </button>
@@ -32,7 +32,12 @@ export default function Item({ item, handleUpdate, handleDelete, handleDone }) {
   }
   return (
     <div>
-      <input type="checkbox" onChange={() => handleDone(item.id)} />
+      <input
+        type="checkbox"
+        className="checkbox"
+        value={item.done}
+        onChange={() => handleDone(item.id)}
+      />
       {itemStatus}
       <button
         className="button"

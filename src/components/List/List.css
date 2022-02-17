@@ -7,6 +7,9 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  border: 3px dotted orange;
+  padding: 10px;
+  margin: 20px;
 }
 
 .list-item {
@@ -17,10 +20,11 @@ li {
 }
 
 .button {
-  height: 30px;
-  width: 64px;
+  height: 38px;
+  width: 80px;
   font-family: monospace;
   border-radius: 15%;
+  margin: 5px;
 }
 
 .list {
@@ -29,4 +33,16 @@ li {
   align-items: flex-start;
   font-family: monospace;
   font-size: 1.3rem;
+}
+
+input[type='checkbox']:checked + label.checkbox {
+  text-decoration: line-through;
+}
+
+.item-label {
+  padding: 10px;
+}
+
+.list-title {
+  font-family: monospace;
 }
