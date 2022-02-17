@@ -28,12 +28,17 @@ test('adds item to list, able to edit', () => {
     name: /save/i,
   });
   userEvent.click(saveButton);
+
   // verify edit, verify something NOT being in there as well
   screen.getByText(/bread/i);
   expect(screen.queryByText('egg')).not.toBeInTheDocument();
   expect(editInput).not.toBeInTheDocument();
-  expect(saveButton).not.toBeInTheDocument();
-  screen.debug();
+  expect(
+    screen.queryByText('button', {
+      name: /save/i,
+    })
+  ).not.toBeInTheDocument();
+
   // Delete
   const deleteButton = screen.getByLabelText(/delete bread/i);
   userEvent.click(deleteButton);

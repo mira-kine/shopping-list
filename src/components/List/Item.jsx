@@ -15,7 +15,7 @@ export default function Item({ item, handleUpdate, handleDelete, handleDone }) {
             handleUpdate({ ...item, text: e.target.value });
           }}
         />
-        <button className="button" aria-label="Save button" onClick={() => setEdit(false)}>
+        <button className="button" aria-label={`Save ${item.text}`} onClick={() => setEdit(false)}>
           Save
         </button>
       </>
