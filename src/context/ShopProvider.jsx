@@ -28,6 +28,9 @@ const ShopProvider = ({ children }) => {
       case 'deleted': {
         return items.filter((item) => item.id !== id);
       }
+      case 'clear': {
+        return (items = []);
+      }
       default: {
         throw Error(`Unkown action: ${type}`);
       }
@@ -62,8 +65,16 @@ const ShopProvider = ({ children }) => {
       id: selectId,
     });
   };
+
+  const handleClear = () => {
+    dispatch({
+      type: 'clear',
+    });
+  };
   return (
-    <ShopContext.Provider value={{ items, handleAdd, handleUpdate, handleDone, handleDelete }}>
+    <ShopContext.Provider
+      value={{ items, handleClear, handleAdd, handleUpdate, handleDone, handleDelete }}
+    >
       {children}
     </ShopContext.Provider>
   );
