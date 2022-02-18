@@ -71,6 +71,7 @@ const ShopProvider = ({ children }) => {
       type: 'clear',
     });
   };
+
   return (
     <ShopContext.Provider
       value={{ items, handleClear, handleAdd, handleUpdate, handleDone, handleDelete }}
