@@ -1,36 +1,24 @@
 import React from 'react';
-import { useState } from 'react';
+import { useShop } from '../../context/ShopProvider';
+import Item from './Item';
 import './List.css';
 
-export default function List({ items, handleUpdate, handleDone, handleDelete }) {
-  const [edit, setEdit] = useState(false);
+export default function List() {
+  const { items, handleUpdate, handleDone, handleDelete } = useShop();
+
   return (
-    <div>
-      <ul className="list-container">
-        {items.map((item) => {
-          if (edit === true) {
-            return (
-              <li key={item.id} className="list-item">
-                <input
-                  value={item.text}
-                  onChange={(e) => {
-                    handleUpdate({ ...item, text: e.target.value });
-                  }}
-                />
-                <button onClick={() => setEdit(false)}>Save</button>
-              </li>
-            );
-          } else {
-            return (
-              <li key={item.id} className="list-item">
-                <input type="checkbox" onChange={() => handleDone(item.id)} />
-                <p>{item.text}</p>
-                <button onClick={() => setEdit(true)}>Edit</button>
-                <button onClick={() => handleDelete(item.id)}>delete</button>
-              </li>
-            );
-          }
-        })}
+    <div className="list-container">
+      <ul className="list">
+        {items.map((item) => (
+          <li key={item.id} className="list-item">
+            <Item
+              item={item}
+              handleUpdate={handleUpdate}
+              handleDone={handleDone}
+              handleDelete={handleDelete}
+            />
+          </li>
+        ))}
       </ul>
     </div>
   );

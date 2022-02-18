@@ -1,10 +1,13 @@
 import './App.css';
 import ShopList from './views/ShopList';
+import { ShopProvider } from './context/ShopProvider';
 
 function App() {
   return (
     <div className="App">
-      <ShopList />
+      <ShopProvider>
+        <ShopList />
+      </ShopProvider>
     </div>
   );
 }
