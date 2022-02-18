@@ -7,10 +7,11 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 3px dotted orange;
+  background-color: rgb(183, 206, 206, 0.5);
   padding: 10px;
   margin: 20px;
   position: relative;
+  border-radius: 15%;
 }
 
 .list-item {
@@ -25,7 +26,7 @@ li {
   width: 80px;
   font-family: monospace;
   border-radius: 15%;
-  margin: 5px;
+  margin: 10px;
 }
 
 .list {

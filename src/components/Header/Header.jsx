@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <div className="header-container">
       <p className="num-items">Number of Items: {items.length}</p>
-      <Button className="button" variant="outlined" onClick={handleClear}>
+      <Button className="button" variant="contained" onClick={handleClear}>
         Clear All
       </Button>
     </div>

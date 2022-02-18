@@ -18,7 +18,7 @@ export default function Item({ item, handleUpdate, handleDelete, handleDone }) {
         />
         <Button
           className="button"
-          variant="outlined"
+          variant="contained"
           size="medium"
           aria-label={`Save ${item.text}`}
           onClick={() => setEdit(false)}
@@ -32,7 +32,7 @@ export default function Item({ item, handleUpdate, handleDelete, handleDone }) {
       <>
         <label className="item-label">{item.text}</label>
         <Button
-          variant="outlined"
+          variant="contained"
           className="button"
           size="medium"
           aria-label={`Edit ${item.text}`}
@@ -54,7 +54,7 @@ export default function Item({ item, handleUpdate, handleDelete, handleDone }) {
       {itemStatus}
       <Button
         className="button"
-        variant="outlined"
+        variant="contained"
         size="medium"
         aria-label={`Delete ${item.text}`}
         onClick={() => handleDelete(item.id)}

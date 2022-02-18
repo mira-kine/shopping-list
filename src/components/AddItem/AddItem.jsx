@@ -26,7 +26,7 @@ export default function AddItem() {
             aria-label="add item"
           />
         </label>
-        <Button variant="outlined" className="button" type="submit">
+        <Button variant="contained" className="button" type="submit">
           Add
         </Button>
       </form>
