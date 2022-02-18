@@ -7,4 +7,5 @@
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  border: solid 3px rgb(59, 17, 211);
 }
