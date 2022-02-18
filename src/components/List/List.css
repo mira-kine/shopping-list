@@ -10,11 +10,12 @@ li {
   background-color: rgb(183, 206, 206, 0.5);
   padding: 10px;
   margin: 20px;
-  position: relative;
-  border-radius: 15%;
+  border-radius: 25%;
+  max-height: 65vh;
+  overflow-y: scroll;
 }
 
-.list-item {
+.list- .list-item {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,12 +24,50 @@ li {
 
 .button {
   height: 38px;
-  width: 80px;
-  font-family: monospace;
+  width: 100px;
+  font-family: 'regular';
+  font-size: 2rem;
   border-radius: 15%;
   margin: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+  background-color: rgb(14, 59, 67);
 }
 
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  color: rgb(237, 234, 208);
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+.button:active {
+  background-color: rgb(0, 109, 119);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 .list {
   display: flex;
   flex-direction: column;
@@ -46,5 +85,9 @@ input[type='checkbox']:checked + label.checkbox {
 }
 
 .list-title {
-  font-family: monospace;
+  font-family: 'Regular', sans-serif;
+  font-weight: lighter;
+  font-size: 5rem;
+  text-shadow: 2px 2px rgb(237, 246, 249);
+  color: rgb(0, 109, 119);
 }

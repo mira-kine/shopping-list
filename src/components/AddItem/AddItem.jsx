@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import './AddItem.css';
 import { useShop } from '../../context/ShopProvider';
-import Button from '@mui/material/Button';
 
 export default function AddItem() {
   const [newItem, setNewItem] = useState('');
@@ -26,9 +25,9 @@ export default function AddItem() {
             aria-label="add item"
           />
         </label>
-        <Button variant="contained" className="button" type="submit">
-          Add
-        </Button>
+        <button variant="contained" className="button" type="submit">
+          <span>Add</span>
+        </button>
       </form>
     </div>
   );

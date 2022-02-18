@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './List.css';
-import Button from '@mui/material/Button';
 
 export default function Item({ item, handleUpdate, handleDelete, handleDone }) {
   const [edit, setEdit] = useState(false);
@@ -16,30 +15,30 @@ export default function Item({ item, handleUpdate, handleDelete, handleDone }) {
             handleUpdate({ ...item, text: e.target.value });
           }}
         />
-        <Button
+        <button
           className="button"
           variant="contained"
           size="medium"
           aria-label={`Save ${item.text}`}
           onClick={() => setEdit(false)}
         >
-          Save
-        </Button>
+          <span>Save</span>
+        </button>
       </>
     );
   } else {
     itemStatus = (
       <>
         <label className="item-label">{item.text}</label>
-        <Button
+        <button
           variant="contained"
           className="button"
           size="medium"
           aria-label={`Edit ${item.text}`}
           onClick={() => setEdit(true)}
         >
-          Edit
-        </Button>
+          <span>Edit</span>
+        </button>
       </>
     );
   }
@@ -52,15 +51,15 @@ export default function Item({ item, handleUpdate, handleDelete, handleDone }) {
         onChange={() => handleDone(item.id)}
       />
       {itemStatus}
-      <Button
+      <button
         className="button"
         variant="contained"
         size="medium"
         aria-label={`Delete ${item.text}`}
         onClick={() => handleDelete(item.id)}
       >
-        Delete
-      </Button>
+        <span>Delete</span>
+      </button>
     </div>
   );
 }

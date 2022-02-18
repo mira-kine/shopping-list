@@ -4,11 +4,11 @@ import { ShopProvider } from './context/ShopProvider';
 
 function App() {
   return (
-    <div className="App">
+    <>
       <ShopProvider>
         <ShopList />
       </ShopProvider>
-    </div>
+    </>
   );
 }
 

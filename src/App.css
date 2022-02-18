@@ -1,3 +1,7 @@
 body {
   height: 100vh;
+  background-image: url(./assets/pink-avocado.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
