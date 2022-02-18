@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import './AddItem.css';
 import { useShop } from '../../context/ShopProvider';
+import Button from '@mui/material/Button';
 
 export default function AddItem() {
   const [newItem, setNewItem] = useState('');
@@ -17,7 +18,6 @@ export default function AddItem() {
     <div className="add-form">
       <form onSubmit={handleSubmit}>
         <label>
-          Add Item:
           <input
             type="text"
             value={newItem}
@@ -26,9 +26,9 @@ export default function AddItem() {
             aria-label="add item"
           />
         </label>
-        <button className="button" type="submit">
+        <Button variant="outlined" className="button" type="submit">
           Add
-        </button>
+        </Button>
       </form>
     </div>
   );

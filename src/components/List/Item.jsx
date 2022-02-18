@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './List.css';
+import Button from '@mui/material/Button';
 
 export default function Item({ item, handleUpdate, handleDelete, handleDone }) {
   const [edit, setEdit] = useState(false);
@@ -15,18 +16,30 @@ export default function Item({ item, handleUpdate, handleDelete, handleDone }) {
             handleUpdate({ ...item, text: e.target.value });
           }}
         />
-        <button className="button" aria-label={`Save ${item.text}`} onClick={() => setEdit(false)}>
+        <Button
+          className="button"
+          variant="outlined"
+          size="medium"
+          aria-label={`Save ${item.text}`}
+          onClick={() => setEdit(false)}
+        >
           Save
-        </button>
+        </Button>
       </>
     );
   } else {
     itemStatus = (
       <>
         <label className="item-label">{item.text}</label>
-        <button className="button" aria-label={`Edit ${item.text}`} onClick={() => setEdit(true)}>
+        <Button
+          variant="outlined"
+          className="button"
+          size="medium"
+          aria-label={`Edit ${item.text}`}
+          onClick={() => setEdit(true)}
+        >
           Edit
-        </button>
+        </Button>
       </>
     );
   }
@@ -39,13 +52,15 @@ export default function Item({ item, handleUpdate, handleDelete, handleDone }) {
         onChange={() => handleDone(item.id)}
       />
       {itemStatus}
-      <button
+      <Button
         className="button"
+        variant="outlined"
+        size="medium"
         aria-label={`Delete ${item.text}`}
         onClick={() => handleDelete(item.id)}
       >
         Delete
-      </button>
+      </Button>
     </div>
   );
 }
