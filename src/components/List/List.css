@@ -89,5 +89,5 @@ input[type='checkbox']:checked + label.checkbox {
   font-weight: lighter;
   font-size: 5rem;
   text-shadow: 2px 2px rgb(237, 246, 249);
-  color: rgb(0, 109, 119);
+  color: black;
 }
