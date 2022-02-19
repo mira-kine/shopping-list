@@ -1,11 +1,60 @@
 .num-items {
   font-family: 'Regular', sans-serif;
   font-size: 2rem;
+  color: rgb(0, 48, 73);
+  text-shadow: 2px 2px rgb(237, 246, 249);
 }
 
 .header-container {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  border: solid 3px rgb(59, 17, 211);
+  background-color: rgb(247, 219, 167);
+}
+
+.button-header {
+  height: 38px;
+  width: 130px;
+  font-family: 'regular';
+  font-size: 2rem;
+  border-radius: 15%;
+  margin: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+  background-color: rgb(14, 59, 67);
+}
+
+.button-header span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  color: rgb(237, 234, 208);
+}
+
+.button-header span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button-header:hover span {
+  padding-right: 25px;
+}
+
+.button-header:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button-header:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+.button-header:active {
+  background-color: rgb(0, 109, 119);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
