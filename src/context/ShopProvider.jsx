@@ -5,7 +5,7 @@ const ShopContext = createContext();
 const ShopProvider = ({ children }) => {
   const initialItems = [
     { id: 0, text: 'Rice', done: false },
-    { id: 1, text: 'Pork tenderloin', done: false },
+    { id: 1, text: 'Pork', done: false },
   ];
   function itemsReducer(items, { type, select, text, id }) {
     switch (type) {
