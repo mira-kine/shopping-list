@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <div className="header-container">
       <p className="num-items">Number of Items: {items.length}</p>
-      <button className="button" variant="contained" onClick={handleClear}>
+      <button className="button-header" variant="contained" onClick={handleClear}>
         <span>Clear All</span>
       </button>
     </div>
