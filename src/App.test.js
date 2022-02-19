@@ -10,7 +10,7 @@ test('adds item to list, able to edit', () => {
 
   // check default items
   screen.getByText(/rice/i);
-  screen.getByText(/pork tenderloin/i);
+  screen.getByText(/pork/i);
 
   // custom item not displayed
   expect(screen.queryByText(/egg/i)).not.toBeInTheDocument();
